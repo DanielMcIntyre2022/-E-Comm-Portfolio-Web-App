@@ -17,8 +17,8 @@ function Slider() {
         </div>
         <div className='slider-wrapper h-full flex bg-slate-50 tw-translate-x: 0'>
             {sliderItems.map(item=> (
-                  <div className='slide flex items-center h-full w-screen'>
-                  <div className='img-container flex-1 h-full ml-20 '>
+                  <div className='slide flex items-center w-screen'>
+                  <div className='img-container flex-1 h-full ml-20'>
                       <img className="h-[80vh]" src={item.img} alt="falljacket"></img>
                   </div>
               <div className='info-container flex-1 p-50'>
