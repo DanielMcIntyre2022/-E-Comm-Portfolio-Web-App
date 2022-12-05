@@ -6,7 +6,6 @@ import { sliderItems } from '../data';
 function Slider() {
     
     const [slideIndex, setSlideIndex ] = useState(0);
-    
     const handleClick = (direction) => {
 
     };
@@ -25,7 +24,7 @@ function Slider() {
               <div className='info-container flex-1 p-50'>
                   <h1 className='text-7xl'>{item.title}</h1>
                   <p className='text-lg mt-10 mb-10 font-medium tracking-wide'>{item.description}</p>
-                  <button className='p-5 text-xl bg-transparent border-2'>Shop now</button>
+                  <button className='p-5 text-xl bg-transparent border-4'>Shop now</button>
                   </div>
               </div>
             ))}
