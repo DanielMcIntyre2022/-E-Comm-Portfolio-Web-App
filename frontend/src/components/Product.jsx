@@ -4,10 +4,10 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 function Product({item}) {
   return (
-    <div className="product-container flex-1 m-5">
+    <div className="product-container flex-1 m-5 min-w-260 h-350 flex items-center justify-center">
         <div className="circle">
           <div className="product-image-container">
-            <img src={item.img}/>
+            <img className="h-80" src={item.img}/>
           </div>
           <div className="info-container">
             <div className="cart-icon-container">
