@@ -52,7 +52,7 @@ function Footer() {
                 <h3>Contact</h3>
                 <div className='contact-logo-container mt-5'>
                     <p className='mb-2'><RoomIcon className='mr-2'/>425 Fake Street, Toronto, ON</p>
-                    <p className='mb-2'><CallIcon className='mr-2'/>+1 416 564 4506</p>
+                    <p className='mb-2'><CallIcon className='mr-2'/>Fake number</p>
                     <p className='mb-2'><MailOutlineIcon className='mr-2'/>contact@ecommerce.com</p>
                     <img className="w-60%"src="https://user-images.githubusercontent.com/52581/44514079-4219bb80-a713-11e8-83a4-88f26bd07e2a.png"/>
                  </div>
