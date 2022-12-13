@@ -1,4 +1,4 @@
-const Product = require('../models/Product');
+const Cart = require('../models/Cart');
 const {verifyTokenAndAdmin, verifyToken, verifyTokenAndAuthorization } = require('./verifyToken');
 const router = require('express').Router();
 
@@ -28,14 +28,14 @@ router.put('/:id', verifyTokenAndAuthorization, async (req, res) => {
 
 // // // DELETE PRODUCT //
 
-// router.delete('/:id', verifyTokenAndAdmin, async(req, res) => {
-//     try {
-//         await User.findByIdAndDelete(req.params.id)
-//         res.status(200).json('Product has been deleted')
-//     } catch (error) {
-//         res.status(500).json(error)
-//     }
-// });
+router.delete('/:id', verifyTokenAndAuthorization, async(req, res) => {
+    try {
+        await Cart.findByIdAndDelete(req.params.id)
+        res.status(200).json('Product has been deleted')
+    } catch (error) {
+        res.status(500).json(error)
+    }
+});
 
 // // // GET PRODUCTS //
 
