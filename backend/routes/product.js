@@ -1,7 +1,6 @@
 const Product = require('../models/Product');
-const {vertifyToken, verifyTokenAndAuthorization, verifyTokenAndAdmin} = require('./verifyToken');
+const {verifyTokenAndAdmin } = require('./verifyToken');
 const router = require('express').Router();
-const Cryptojs = require('crypto-js');
 
 // CREATE/ADD PRODUCTS //
 
@@ -71,21 +70,5 @@ router.get('/', async(req, res) => {
         res.status(500).json(error);
     }
 });
-
-// // GET USER STATS //
-// router.get('/stats', verifyTokenAndAdmin, async(req, res) => {
-//     const date = new Date();
-//     const lastYear = new Date(date.setFullYear(date.getFullYear() -1));
-//     try {
-//         const data = await User.aggregate([
-//             {$match: {createdAt: {$gte: lastYear}}},
-//             {$project: {month: {$month: '$createdAt'}}},
-//             {$group: {_id: '$month', total: {$sum: 1}}}
-//         ]);
-//         res.status(200).json(data)
-//     } catch (error) {
-//         res.status(500).json(error)
-//     }
-// });
 
 module.exports = router;
