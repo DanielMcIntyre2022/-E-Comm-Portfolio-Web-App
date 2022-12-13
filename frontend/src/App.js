@@ -4,11 +4,12 @@ import Login from "./pages/Login";
 import Register from './pages/Register'
 import ProductList from "./pages/ProductList";
 import Product from "./pages/Product";
+import Payment from './components/Payment';
 
 function App() {
   return (
     <div className="App">
-    <Cart/>
+    <Payment/>
     </div>
   );
 }
