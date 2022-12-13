@@ -86,3 +86,5 @@ router.get('/income', verifyTokenAndAdmin, async (req, res) => {
         res.status(500)
     }
 });
+
+module.exports = router;
