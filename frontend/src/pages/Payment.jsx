@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+// import { useHistory } from 'react-router';
 import StripeCheckout from 'react-stripe-checkout';
 
 function Payment() {
 
     const KEY = process.env.REACT_APP_STRIPE_P_KEY
 
-    const [stripeToken, setStripeToken ] = useState(null)
+    const [stripeToken, setStripeToken ] = useState(null);
+    // const history = useHistory();
     
     const onToken = (token) => {
         setStripeToken(token)
@@ -41,8 +43,10 @@ function Payment() {
         amount={2000}
         token={onToken}
         stripeKey={KEY}
-        >
+        > 
+        { stripeToken ? (<span>Processing. Please wait...</span>) : (
             <button className='border'>Checkout</button>
+        )}
         </StripeCheckout>
     </div>
   )
