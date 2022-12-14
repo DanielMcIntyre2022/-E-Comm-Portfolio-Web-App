@@ -11,6 +11,7 @@ function ProductList() {
     const location = useLocation();
     const catergoryLink = location.pathname.split('/')[2];
     const [ filter, setFilters ] = useState({});
+    const [ sort, setSort ] = useState("newest")
 
     const handleFilters = (e) => {
         const valueSelected = e.target.value;
@@ -19,8 +20,6 @@ function ProductList() {
             [e.target.name]: valueSelected
         });
     };
-
-    console.log(filter);
 
   return (
     <div className="product-list-container">
@@ -52,10 +51,10 @@ function ProductList() {
                 </select>
             </div>
             <div className="filter m-2"><span className="text-base font-bold mr-2">Sort Products:</span>
-                <select className="p-2">
-                    <option selected>Newest</option>
-                    <option>Price (Highest)</option>
-                    <option>Price (Lowest) </option>
+                <select onChange={e => setSort(e.target.value)} className="p-2">
+                    <option value="newest">Newest</option>
+                    <option value="highest">Price (Highest)</option>
+                    <option value="lowest">Price (Lowest) </option>
                 </select>
             </div>
          </div>
