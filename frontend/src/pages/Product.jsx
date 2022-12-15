@@ -5,6 +5,8 @@ import Footer from "../components/Footer";
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { publicRequest } from "../requestMethods";
+import { addProduct } from "../redux/cartRedux";
+import { useDispatch } from 'react-redux';
 
 function Product() {
 
@@ -13,6 +15,7 @@ function Product() {
     const [ product, setProduct ] = useState({});
     const [ quantity, setQuantity ] = useState(1);
     const [ size, setSize ] = useState('');
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const getProduct = async () => {
@@ -34,8 +37,7 @@ function Product() {
     };
 
     const handleClick = () => {
-            // update cart //
-            
+        dispatch(addProduct({product, quantity}));
     };
 
   return (
