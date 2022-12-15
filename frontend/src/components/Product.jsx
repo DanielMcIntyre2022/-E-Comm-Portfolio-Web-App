@@ -1,6 +1,7 @@
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { Link } from 'react-router-dom';
 
 function Product({item}) {
   return (
@@ -14,7 +15,9 @@ function Product({item}) {
                 <ShoppingCartOutlinedIcon/>
             </div>
             <div className="search-icon-container rounded-full">
-                <SearchIcon/>
+                <Link to={`/product/${item._id}`}>
+                    <SearchIcon/>
+                </Link>
             </div>
             <div className="favourite-icon-container">
                 <FavoriteBorderIcon/>
