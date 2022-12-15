@@ -2,7 +2,6 @@ import Annoucements from "../components/Annoucements";
 import Navbar from "../components/Navbar";
 import NewsLetter from "../components/Newsletter";
 import Footer from "../components/Footer";
-import axios from "axios";
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { publicRequest } from "../requestMethods";
@@ -13,6 +12,7 @@ function Product() {
     const productId = location.pathname.split('/')[2];
     const [ product, setProduct ] = useState({});
     const [ quantity, setQuantity ] = useState(1);
+    const [ size, setSize ] = useState('');
 
     useEffect(() => {
         const getProduct = async () => {
@@ -27,10 +27,15 @@ function Product() {
 
     const handleQuanitity = (type) => {
         if(type === 'decrease') {
-            setQuantity(quantity - 1)
+            quantity > 1 && setQuantity(quantity - 1)
         } else {
             setQuantity(quantity + 1)
         }
+    };
+
+    const handleClick = () => {
+            // update cart //
+            
     };
 
   return (
@@ -52,10 +57,10 @@ function Product() {
                         </div>
                         <div className="filter-two">
                             <h1>Size</h1>
-                            <select className="p-2 mr-5">
-                                {product.size.map((s) => (
-                                     <option key={s}>{s}</option>
-                                ))}
+                            <select className="filter-size p-2 mr-5" onChange={(e)=> setSize(e.target.value)}>
+                                {/* {product.size.map((filteredSize) => (
+                                     <option className='filterOption' key={filteredSize}>{filteredSize}</option>
+                                ))} */}
                             </select>
                         </div>
                     </div>
@@ -65,7 +70,7 @@ function Product() {
                                 <p className="amount ml-2 mr-2">{quantity}</p>
                             <button className="add-btn" onClick={() => handleQuanitity('increase')}>+</button>
                         </div>
-                        <button>ADD TO CART</button>
+                        <button onClick={handleClick}>ADD TO CART</button>
                     </div>
                 </div>
             </div>
