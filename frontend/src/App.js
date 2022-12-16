@@ -6,10 +6,11 @@ import ProductList from "./pages/ProductList";
 import Product from "./pages/Product";
 import Payment from './pages/Payment';
 import PaySuccess from './pages/PaySuccess';
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom';
 
 function App() {
-  const user = false;
+  const user = useSelector(state => state.user.currentUser);
   return (
     <Router>
       <div className="App">
