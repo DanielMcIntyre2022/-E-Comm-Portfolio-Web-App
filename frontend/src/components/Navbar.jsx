@@ -2,12 +2,18 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Badge } from '@mui/material';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { useSelector } from 'react-redux';
+import { logout } from '../redux/apiCalls';
 import { Link } from 'react-router-dom';
 
 function Navbar() {
   
   const cartQuantity = useSelector(state => state.cart.quantity);
   const user = useSelector(state => state.user.currentUser);
+
+  const handleClick = (e) => {
+    e.preventDefault();
+      logout();
+  };
   
   return (
     <div className="nav-container h-20 max-sm:-ml-16">
@@ -33,7 +39,13 @@ function Navbar() {
                     </Link>
                 }
                 {
-                  user ? <div> LOG OUT </div> 
+                  user ? <div className='logout-container'> 
+                  <button
+                  onClick={handleClick}
+                  >
+                      LOG OUT 
+                  </button>
+                  </div> 
                   : <div className='menu-item-two'><h1 className='max-sm:text-xs'>LOGIN</h1></div>
                 }  
                 <div className='menu-item-three'>
