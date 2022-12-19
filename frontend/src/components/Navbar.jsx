@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 function Navbar() {
   
   const cartQuantity = useSelector(state => state.cart.quantity);
+  const user = useSelector(state => state.user.currentUser);
   
   return (
     <div className="nav-container h-20 max-sm:-ml-16">
@@ -25,10 +26,16 @@ function Navbar() {
            </div>
            <div className="right-container flex items-center justify-end flex-1 max-sm:justify-center max-sm:flex-2">
               <div className='menu-item-container flex space-x-6 ml-5'>
-                <Link to='/register'>
-                    <div className='menu-item-one'><h1 className='max-sm:text-xs'>REGISTER</h1></div>
-                </Link>
-                <div className='menu-item-two'><h1 className='max-sm:text-xs'>LOGIN</h1></div>
+                {
+                  user ? <div></div> 
+                  :  <Link to='/register'>
+                       <div className='menu-item-one'><h1 className='max-sm:text-xs'>REGISTER</h1></div>
+                    </Link>
+                }
+                {
+                  user ? <div> LOG OUT </div> 
+                  : <div className='menu-item-two'><h1 className='max-sm:text-xs'>LOGIN</h1></div>
+                }  
                 <div className='menu-item-three'>
                   <Link to='/cart'>
                 <Badge badgeContent={cartQuantity} color="primary">
