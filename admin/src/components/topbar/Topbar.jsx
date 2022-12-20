@@ -2,7 +2,6 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LanguageIcon from '@mui/icons-material/Language';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-
 function Topbar() {
   return (
     <div className="topbar w-100% h-12 bg-white sticky top-0">
