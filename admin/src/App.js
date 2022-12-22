@@ -1,13 +1,14 @@
 import Sidebar from "./components/sidebar/Sidebar";
 import Topbar from "./components/topbar/Topbar";
+import Home from './pages/home/Home';
 
 function App() {
   return (
     <div className="App">
       <Topbar/>
-      <div className="container flex">
+      <div className="container flex mt-10">
         <Sidebar/>
-        <div className="others flex-[4_4_0%]">other section</div>
+        <Home/>
       </div>
     </div>
   );
