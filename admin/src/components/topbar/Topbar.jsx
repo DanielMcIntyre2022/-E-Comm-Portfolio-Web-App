@@ -1,13 +1,16 @@
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import LanguageIcon from '@mui/icons-material/Language';
 import SettingsIcon from '@mui/icons-material/Settings';
+import { Link } from 'react-router-dom';
 
 function Topbar() {
   return (
     <div className="topbar w-100% h-12 bg-white sticky top-0">
         <div className="topbar-wrapper flex h-full pt-0 pb-0 pl-20 pr-20 items-center justify-between">
             <div className="top-left">
-              <span className="logo font-bold text-3xl text-cyan-600">E-Comm Admin Panel</span>
+              <Link to='/'>
+                  <span className="logo font-bold text-3xl text-cyan-600">E-Comm Admin Panel</span>
+              </Link>
             </div>
             <div className="top-right flex items-center text-zinc-500">
               <div className="topbar-icon-container relative cursor-pointer">

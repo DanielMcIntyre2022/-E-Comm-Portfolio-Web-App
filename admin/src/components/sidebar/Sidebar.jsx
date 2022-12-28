@@ -8,6 +8,7 @@ import SignalCellularAltIcon from '@mui/icons-material/SignalCellularAlt';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
+import { Link } from 'react-router-dom';
 
 function Sidebar() {
   return (
@@ -41,7 +42,9 @@ function Sidebar() {
                 <ul className="sidebar-list ml-5">
                     <li className="sidebar-list-item p-1 flex items-center cursor-pointer">
                         <PersonOutlineIcon/>
-                        <span className='ml-2'>Users</span>
+                        <Link to='/users'>
+                            <span className='ml-2'>Users</span>
+                        </Link>
                     </li>
                     <li className="sidebar-list-item p-1 flex items-center cursor-pointer">
                         <ProductionQuantityLimitsIcon/>
