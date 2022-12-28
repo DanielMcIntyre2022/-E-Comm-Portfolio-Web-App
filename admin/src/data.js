@@ -48,3 +48,31 @@ export const userData = [
         "Active User": 3490,
     },
   ];
+
+  export const userRows = [
+    { 
+        id: 1, 
+        username: 'Jon Snow', 
+        avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrCRZY-C1hrAm9VlqOPjWkN5vFRYvqCShRg&usqp=CAU',
+        email: 'test@testemail.com',
+        status: 'active',
+        transaction: '$120'
+    },
+    { 
+        id: 2, 
+        username: 'Jon Snow', 
+        avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrCRZY-C1hrAm9VlqOPjWkN5vFRYvqCShRg&usqp=CAU',
+        email: 'test@testemail.com',
+        status: 'active',
+        transaction: '$120'
+    },
+    { 
+        id: 3, 
+        username: 'Jon Snow', 
+        avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrCRZY-C1hrAm9VlqOPjWkN5vFRYvqCShRg&usqp=CAU',
+        email: 'test@testemail.com',
+        status: 'active',
+        transaction: '$120'
+    },
+
+];
