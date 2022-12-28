@@ -1,4 +1,5 @@
 import { DataGrid } from '@mui/x-data-grid';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 function UserList() {
 
@@ -15,6 +16,14 @@ function UserList() {
         { field: 'email', headerName: 'Email', width: 200 },
         { field: 'status', headerName: 'Status', width: 120 },
         { field: 'transaction',headerName: 'Transaction Total', width: 160 },
+        { field: 'action', headerName: 'Action', width: 150, renderCell: (params) => {
+            return (
+                <>
+                    <button className='user-list-edit mr-10 cursor-pointer'>Edit</button>
+                    <DeleteOutlineIcon className='user-list-delete cursor-pointer text-red-500'/>
+                </>
+            )
+        }}
       ];
       
       const rows = [
@@ -49,8 +58,10 @@ function UserList() {
     <div className="user-list flex-[4_4_0%]">
        <DataGrid
         rows={rows}
+        disableSelectionOnClick
         columns={columns}
         checkboxSelection
+        pageSize={10}
       />
     </div>
   )
