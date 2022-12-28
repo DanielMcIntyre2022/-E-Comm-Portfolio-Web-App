@@ -1,8 +1,15 @@
 import { DataGrid } from '@mui/x-data-grid';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { userRows } from '../../data';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 function UserList() {
+
+    const [data, setData] = useState(userRows);
+    const handleDelete = (id) => {
+        setData(data.filter(item=>item.id !== id));
+    };
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 90 },
@@ -20,8 +27,10 @@ function UserList() {
         { field: 'action', headerName: 'Action', width: 150, renderCell: (params) => {
             return (
                 <>
+                <Link to={'/user/' + params.row.id}>
                     <button className='user-list-edit mr-10 cursor-pointer'>Edit</button>
-                    <DeleteOutlineIcon className='user-list-delete cursor-pointer text-red-500'/>
+                </Link>
+                    <DeleteOutlineIcon className='user-list-delete cursor-pointer text-red-500' onClick={() => handleDelete(params.row.id)}/>
                 </>
             )
         }}
@@ -30,7 +39,7 @@ function UserList() {
   return (
     <div className="user-list flex-[4_4_0%]">
        <DataGrid
-        rows={userRows}
+        rows={data}
         disableSelectionOnClick
         columns={columns}
         checkboxSelection
