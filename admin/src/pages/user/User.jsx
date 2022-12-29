@@ -3,6 +3,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LocationSearchingIcon from '@mui/icons-material/LocationSearching';
+import PublishIcon from '@mui/icons-material/Publish';
 
 function User() {
   return (
@@ -47,7 +48,40 @@ function User() {
                             </div>
                         </div>
                     </div>
-                    <div className="userUpdate flex-[2_2_0%] p-10 shadow-xl ml-10"></div>
+                <div className="userUpdate flex-[2_2_0%] p-10 shadow-xl ml-10">
+                <span className='user-update-title'>Edit</span>
+                    <form className='user-update-form'>
+                        <div className='userUpdateLeft'>
+                            <div className="userUpdateItem">
+                                <label>Username:</label>
+                                <input className="userUpdateInput border" placeholder="Daniel.McIntyre2022" type="text"></input>
+                            </div>
+                            <div className="userUpdateItem">
+                                <label>Full Name:</label>
+                                <input className="userUpdateInput border" placeholder="Daniel McIntyre" type="text"></input>
+                            </div>
+                            <div className="userUpdateItem">
+                                <label>Number:</label>
+                                <input className="userUpdateInput border" placeholder="Fake Number" type="text"></input>
+                            </div>
+                            <div className="userUpdateItem">
+                                <label>Email:</label>
+                                <input className="userUpdateInput border" placeholder="Email" type="text"></input>
+                            </div>
+                            <div className="userUpdateItem">
+                                <label>Address:</label>
+                                <input className="userUpdateInput border" placeholder="Fake Address" type="text"></input>
+                            </div>
+                        </div>
+                        <div className='userUpdateRight'>
+                            <div className='user-update-upload'>
+                                <img className="user-update-img w-24 h-24 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrCRZY-C1hrAm9VlqOPjWkN5vFRYvqCShRg&usqp=CAU"/>
+                                <label htmlFor='file'><PublishIcon/></label>
+                                <input type="file" id='file' style={{display:'none'}}/>
+                            </div>
+                        </div>
+                    </form>
+            </div>
          </div>
     </div>
   )
