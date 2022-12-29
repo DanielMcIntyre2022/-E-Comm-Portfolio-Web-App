@@ -22,7 +22,9 @@ function Sidebar() {
                 <ul className="sidebar-list ml-5">
                     <li className="sidebar-list-item p-1 flex items-center cursor-pointer">
                         <LineStyleIcon/>
+                    <Link to='/'>
                         <span className='ml-2'>Home</span>
+                    </Link>
                     </li>
                     <li className="sidebar-list-item p-1 flex items-center cursor-pointer">
                         <TimelineIcon/>
@@ -48,7 +50,9 @@ function Sidebar() {
                     </li>
                     <li className="sidebar-list-item p-1 flex items-center cursor-pointer">
                         <ProductionQuantityLimitsIcon/>
-                        <span className='ml-2'>Products</span>
+                        <Link to='/products'>
+                            <span className='ml-2'>Products</span>
+                        </Link>
                     </li>
                     <li className="sidebar-list-item p-1 flex items-center cursor-pointer">
                         <AttachMoneyIcon/>
