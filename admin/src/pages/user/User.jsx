@@ -4,13 +4,16 @@ import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LocationSearchingIcon from '@mui/icons-material/LocationSearching';
 import PublishIcon from '@mui/icons-material/Publish';
+import { Link } from 'react-router-dom';
 
 function User() {
   return (
     <div className="user flex-[4_4_0%] p-10">
         <div className="userTitleContainer flex items-center justify-between">
             <h1 className="userTitle text-2xl">Edit User</h1>
-            <button className="userAddButton bg-teal-600 w-20 p-2 rounded text-white">Create</button>
+            <Link to='/newUser'>
+                <button className="userAddButton bg-teal-600 w-20 p-2 rounded text-white">Create</button>
+            </Link>
         </div>    
                 <div className="userContainer flex mt-5">
                     <div className="userShow flex-1 p-10 shadow-xl">
