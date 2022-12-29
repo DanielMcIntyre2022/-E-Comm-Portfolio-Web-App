@@ -7,7 +7,7 @@ import PublishIcon from '@mui/icons-material/Publish';
 
 function User() {
   return (
-    <div className="user flex-[4_4_0%] p-20">
+    <div className="user flex-[4_4_0%] p-10">
         <div className="userTitleContainer flex items-center justify-between">
             <h1 className="userTitle text-2xl">Edit User</h1>
             <button className="userAddButton bg-teal-600 w-20 p-2 rounded text-white">Create</button>
@@ -49,36 +49,37 @@ function User() {
                         </div>
                     </div>
                 <div className="userUpdate flex-[2_2_0%] p-10 shadow-xl ml-10">
-                <span className='user-update-title'>Edit</span>
-                    <form className='user-update-form'>
+                <span className='user-update-title text-2xl'>Edit</span>
+                    <form className='user-update-form flex justify-between mt-10'>
                         <div className='userUpdateLeft'>
-                            <div className="userUpdateItem">
-                                <label>Username:</label>
-                                <input className="userUpdateInput border" placeholder="Daniel.McIntyre2022" type="text"></input>
+                            <div className="userUpdateItem flex flex-col">
+                                <label className='mb-2'>Username:</label>
+                                <input className="userUpdateInput border-b-[2px] border-slate-400 w-60" placeholder="Daniel.McIntyre2022" type="text"></input>
                             </div>
-                            <div className="userUpdateItem">
-                                <label>Full Name:</label>
-                                <input className="userUpdateInput border" placeholder="Daniel McIntyre" type="text"></input>
+                            <div className="userUpdateItem flex flex-col mt-5">
+                                <label className='mb-2'>Full Name:</label>
+                                <input className="userUpdateInput border-b-[2px] border-slate-400 w-60" placeholder="Daniel McIntyre" type="text"></input>
                             </div>
-                            <div className="userUpdateItem">
-                                <label>Number:</label>
-                                <input className="userUpdateInput border" placeholder="Fake Number" type="text"></input>
+                            <div className="userUpdateItem flex flex-col mt-5">
+                                <label className='mb-2'>Number:</label>
+                                <input className="userUpdateInput border-b-[2px] border-slate-400 w-60" placeholder="Fake Number" type="text"></input>
                             </div>
-                            <div className="userUpdateItem">
-                                <label>Email:</label>
-                                <input className="userUpdateInput border" placeholder="Email" type="text"></input>
+                            <div className="userUpdateItem flex flex-col mt-5">
+                                <label className='mb-2'>Email:</label>
+                                <input className="userUpdateInput border-b-[2px] border-slate-400 w-60" placeholder="Email" type="text"></input>
                             </div>
-                            <div className="userUpdateItem">
-                                <label>Address:</label>
-                                <input className="userUpdateInput border" placeholder="Fake Address" type="text"></input>
+                            <div className="userUpdateItem flex flex-col mt-5">
+                                <label className='mb-2'>Address:</label>
+                                <input className="userUpdateInput border-b-[2px] border-slate-400 w-60" placeholder="Fake Address" type="text"></input>
                             </div>
                         </div>
-                        <div className='userUpdateRight'>
-                            <div className='user-update-upload'>
+                        <div className='userUpdateRight flex flex-col justify-between'>
+                            <div className='user-update-upload flex items-center'>
                                 <img className="user-update-img w-24 h-24 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrCRZY-C1hrAm9VlqOPjWkN5vFRYvqCShRg&usqp=CAU"/>
-                                <label htmlFor='file'><PublishIcon/></label>
+                                <label htmlFor='file'><PublishIcon className='cursor-pointer'/></label>
                                 <input type="file" id='file' style={{display:'none'}}/>
                             </div>
+                            <button className='user-update-button border-[2px]'>Update</button>
                         </div>
                     </form>
             </div>
