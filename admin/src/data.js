@@ -1,3 +1,5 @@
+// USER DATA //
+
 export const userData = [
     {
       name: 'Jan',
@@ -47,6 +49,23 @@ export const userData = [
         name: 'Dec',
         "Active User": 3490,
     },
+  ];
+
+  // PRODUCT DATA //
+
+  export const productData = [
+    {
+      name: 'Jan',
+      "Sales": 4000,
+    },
+    {
+      name: 'Feb',
+      "Sales": 3000,
+    },
+    {
+      name: 'Mar',
+      "Sales": 2000,
+    }
   ];
 
   export const userRows = [
