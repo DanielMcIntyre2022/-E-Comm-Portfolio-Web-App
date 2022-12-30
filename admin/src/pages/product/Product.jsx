@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import Chart from '../../components/chart/Chart';
 import { productData } from '../../data';
+import PublishIcon from '@mui/icons-material/Publish';
 
 function Product() {
   return (
@@ -41,11 +42,11 @@ function Product() {
             </div>
         </div>
         <div className='product-bottom shadow-xl'>
-            <form className='product-form'>
-                <div className='product-form-left'>
+            <form className='product-form flex justify-between'>
+                <div className='product-form-left flex flex-col'>
                     <label>Product Name:</label>
                     <input type='text' placeholder='Winter Sweater'/>
-                    <label>In Stock</label>
+                    <label className='mb-10 text-slate-400'>In Stock</label>
                         <select name='inStock' id='idStock'>
                             <option value='yes'>Yes</option>
                             <option value='no'>No</option>
@@ -56,7 +57,16 @@ function Product() {
                             <option value='no'>No</option>
                         </select>
                 </div>
-                <div className='product-form-right'></div>
+                <div className='product-form-right flex flex-col justify-around'>
+                    <div className="products-upload flex items-center">
+                        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrCRZY-C1hrAm9VlqOPjWkN5vFRYvqCShRg&usqp=CAU' className='product-upload-img rounded-full object-cover'></img>
+                        <label for='file'>
+                            <PublishIcon/>
+                        </label>
+                        <input type='file' id='file' style={{ display: 'none'}}></input>
+                    </div>
+                    <button className='product-button'>Update</button>
+                </div>
             </form>
         </div>
     </div>
