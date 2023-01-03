@@ -24,4 +24,6 @@ yarn-error.log*
 
 # Request Methods 
 /src/.requestMethods
+admin/src/requestMethods
+/src/requestMethods
 
