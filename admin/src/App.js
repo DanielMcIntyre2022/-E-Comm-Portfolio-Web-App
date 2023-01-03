@@ -13,10 +13,12 @@ import Login from "./pages/login/Login";
 function App() {
   return (
     <Router>
-      <Topbar/>
-      <div className="container flex mt-10">
-        <Sidebar/>
-          <Routes>
+         <Topbar/>
+            <div className="container flex mt-10">
+          <Sidebar/>
+          <Routes>  
+             {/* login */}
+             <Route path='/login' element={<Login/>}/>
             {/* users */}
             <Route exact path='/' element={<Home/>}/>
             <Route path='/users' element={<UserList/>}/>
@@ -26,10 +28,8 @@ function App() {
             <Route path='/products' element={<ProductList/>}/>
             <Route path='/product/:productId' element={<Product/>}/>
             <Route path='/newProduct' element={<NewProduct/>}/>
-            {/* login */}
-            <Route path='/login' element={<Login/>}/>
-          </Routes>
-      </div>
+            </Routes>
+        </div>
     </Router>
   );
 }

@@ -14,7 +14,7 @@ const handleClick = (e) => {
 };
 
   return (
-    <div className="login">
+    <div className="login flex items-center flex-col">
         <input type="text" placeholder="username" onChange={e => setUsername(e.target.value)}/>
         <input type="password" placeholder="password" onChange={e => setPassword(e.target.value)}/>
         <button onClick={handleClick}>Login</button>
