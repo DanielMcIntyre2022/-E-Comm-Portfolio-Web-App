@@ -1,9 +1,26 @@
+import { useState, useEffect } from 'react';
+import { userRequest } from '../../requestMethods';
+import { format } from 'timeago.js';
 
 function LargeWidget() {
 
     const Button = ({type}) => {
         return <button className={"large-widget-button " + type} >{type}</button>
     };
+
+    const [ orders, setOrders ] = useState([]);
+
+    useEffect(() => {
+        const getOrders = async () => {
+            try {
+                const res = await userRequest.get('orders')
+                setOrders(res.data)
+            } catch (error) {
+                console.log(error)     
+            }
+        };
+        getOrders();
+    },[]);
 
   return (
     <div className="large-widget flex-[2_2_0%] shadow-xl p-20">
@@ -15,66 +32,22 @@ function LargeWidget() {
                 <th className="large-widge-th">Amount</th>
                 <th className="large-widge-th">Status</th>
             </tr>
-            <tr className="widget-large-tr">
+            {orders.map(order => (
+                <tr className="widget-large-tr">
                 <td className="widget-large-user">
-                    <img className="widget-large-image rounded-full w-10 h-10 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrCRZY-C1hrAm9VlqOPjWkN5vFRYvqCShRg&usqp=CAU"/>
-                    <span className="widget-large-name font-semibold">Daniel McIntyre</span>
+                    <span className="widget-large-name font-semibold">{order.userId}</span>
                 </td>
                 <td className="widget-large-date font-light">
-                    22 Dec 2022
+                    {format(order.createdAt)}
                 </td>
                 <td className="widget-large-amount font-light">
-                    $122.00
+                    ${order.amount}
                 </td>
                 <td className="widget-large-status">
-                    <Button type="Approved"/>
+                    <Button type={order.status}/>
                 </td>
             </tr>
-            <tr className="widget-large-tr">
-                <td className="widget-large-user">
-                    <img className="widget-large-image rounded-full w-10 h-10 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrCRZY-C1hrAm9VlqOPjWkN5vFRYvqCShRg&usqp=CAU"/>
-                    <span className="widget-large-name font-semibold">Daniel McIntyre</span>
-                </td>
-                <td className="widget-large-date font-light">
-                    22 Dec 2022
-                </td>
-                <td className="widget-large-amount font-light">
-                    $122.00
-                </td>
-                <td className="widget-large-status">
-                    <Button type="Declined"/>
-                </td>
-            </tr>
-            <tr className="widget-large-tr">
-                <td className="widget-large-user">
-                    <img className="widget-large-image rounded-full w-10 h-10 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrCRZY-C1hrAm9VlqOPjWkN5vFRYvqCShRg&usqp=CAU" />
-                    <span className="widget-large-name font-semibold">Daniel McIntyre</span>
-                </td>
-                <td className="widget-large-date font-light">
-                    22 Dec 2022
-                </td>
-                <td className="widget-large-amount font-light">
-                    $122.00
-                </td>
-                <td className="widget-large-status">
-                    <Button type="Pending"/>
-                </td>
-            </tr>
-            <tr className="widget-large-tr">
-                <td className="widget-large-user">
-                    <img className="widget-large-image rounded-full w-10 h-10 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrCRZY-C1hrAm9VlqOPjWkN5vFRYvqCShRg&usqp=CAU"/>
-                    <span className="widget-large-name font-semibold">Daniel McIntyre</span>
-                </td>
-                <td className="widget-large-date font-light">
-                    22 Dec 2022
-                </td>
-                <td className="widget-large-amount font-light">
-                    $122.00
-                </td>
-                <td className="widget-large-status">
-                    <Button type="Approved"/>
-                </td>
-            </tr>
+            ))}  
         </table>
     </div>
   )
