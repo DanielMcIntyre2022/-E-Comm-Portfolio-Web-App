@@ -3,8 +3,10 @@ import { loginFailure,
     logoutStart, logoutSuccess, 
     logoutFailure } from "./userRedux"
 import { getProductStart, getProductSuccess, 
-    getProductFailure } from "./productRedux";
-import { publicRequest } from '../requestMethods';
+    getProductFailure, deleteProductStart,
+    deleteProductSuccess, deleteProductFailure
+} from "./productRedux";
+import { publicRequest, userRequest } from '../requestMethods';
 
 // LOGIN //
 
@@ -27,6 +29,18 @@ export const getProducts = async (dispatch) => {
         dispatch(getProductSuccess(response.data))
     } catch (error) {
         dispatch(getProductFailure())
+    }
+};
+
+// DELETE PRODUCT //
+
+export const deleteProduct = async (id, dispatch) => {
+    dispatch(deleteProductStart());
+    try {
+        const response = await userRequest.delete(`/products/${id}`)
+        dispatch(deleteProductSuccess(id))
+    } catch (error) {
+        dispatch(deleteProductFailure())
     }
 };
 
