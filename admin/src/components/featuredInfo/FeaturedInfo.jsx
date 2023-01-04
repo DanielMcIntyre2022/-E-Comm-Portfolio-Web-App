@@ -26,7 +26,7 @@ function FeaturedInfo() {
         <div className="featuredItem flex-1 ml-10 mr-10 p-10 rounded-lg cursor-pointer shadow-xl">
             <span className="featured-title text-xl">Revenue</span>
             <div className="featuredMoneyContainer mt-5 flex items-center">
-                <span className="featuredMoney text-3xl">${income.total}</span>
+                <span className="featuredMoney text-3xl">${income?.total}</span>
                 <span className="featuredMoneyRate ml-5 flex items-center">%{Math.floor(percentage)}
                 { percentage < 0 ? (
                     <ArrowDownwardIcon className='featuredIcon negetive text-sm text-red-500'/>

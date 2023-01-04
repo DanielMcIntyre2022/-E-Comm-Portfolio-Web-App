@@ -3,11 +3,51 @@ import Chart from '../../components/chart/Chart';
 import { productData } from '../../data';
 import PublishIcon from '@mui/icons-material/Publish';
 import { useSelector } from 'react-redux';
+import { useState, useMemo, useEffect } from 'react';
+import { userRequest } from "../../requestMethods";
 
 function Product() {
 
     const location = useLocation();
     const productId = location.pathname.split('/')[2];
+    const [ proudctStats, setProductStats] = useState([]);
+
+    const months = useMemo(
+        () => [
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'June',
+          'Jul',
+          'Aug',
+          'Oct',
+          'Nov',
+          'Dec'
+        ],
+        []
+      );
+
+      useEffect(() => {
+        const getStats = async () => {
+          try {
+            const res = await userRequest.get('/users/stats')
+            const list = res.data.sort((a,b) => {
+                return a._id - b._id
+            });
+            list.map(item => {
+              setProductStats(prev => [
+                ...prev,
+                {name: months[item._id-1], Sales:item.total},
+              ])
+            })
+          } catch (error) {
+            console.log(error)
+          }
+        }
+        getStats()
+      },[months]);
     
     const product = useSelector(state => 
         state.product.products.find(product => product._id === productId)
@@ -23,7 +63,7 @@ function Product() {
         </div>
         <div className='product-top flex'>
             <div className='product-top-left flex-1'>
-                <Chart data={productData} dataKey='Sales' title='Sales Perfomance'/>
+                <Chart data={proudctStats} dataKey='Sales' title='Sales Perfomance'/>
             </div>
             <div className='product-top-right flex-1 p-10 shadow-xl'>
                 <div className='product-info-top flex items-center'>
