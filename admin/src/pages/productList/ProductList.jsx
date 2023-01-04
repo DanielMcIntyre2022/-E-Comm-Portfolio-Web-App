@@ -3,7 +3,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { productRows } from '../../data';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getProducts } from '../../redux/apiCalls';
 
@@ -12,6 +12,7 @@ function ProductList() {
     const [data, setData] = useState(productRows);
 
     const dispatch = useDispatch();
+    const products = useSelector(state => state.product.products);
 
     useEffect(() => {
         getProducts(dispatch);
@@ -22,7 +23,7 @@ function ProductList() {
     };
 
     const columns = [
-        { field: 'id', headerName: 'ID', width: 90 },
+        { field: '_id', headerName: 'ID', width: 90 },
         { field: 'product', headerName: 'Product', width: 200, renderCell: (params)=> {
             return (
                 <div className='productListUser flex items-center'>
@@ -49,9 +50,10 @@ function ProductList() {
   return (
     <div className="product-list flex-[4]">
         <DataGrid
-        rows={data}
+        rows={products}
         disableSelectionOnClick
         columns={columns}
+        getRowId={(row) => row._id}
         checkboxSelection
         pageSize={10}
       />
