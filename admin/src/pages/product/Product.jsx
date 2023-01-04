@@ -1,9 +1,18 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Chart from '../../components/chart/Chart';
 import { productData } from '../../data';
 import PublishIcon from '@mui/icons-material/Publish';
+import { useSelector } from 'react-redux';
 
 function Product() {
+
+    const location = useLocation();
+    const productId = location.pathname.split('/')[2];
+    
+    const product = useSelector(state => 
+        state.product.products.find(product => product._id === productId)
+    );
+
   return (
     <div className="product flex-[4] p-10">
         <div className="product-title-container flex items-center justify-between">
@@ -18,13 +27,13 @@ function Product() {
             </div>
             <div className='product-top-right flex-1 p-10 shadow-xl'>
                 <div className='product-info-top flex items-center'>
-                    <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrCRZY-C1hrAm9VlqOPjWkN5vFRYvqCShRg&usqp=CAU' className='product-info-image rounded-full object-cover'/>
-                    <span className='proudct-name font-semibold ml-10'>Winter Sweater</span>
+                    <img src={product.img} className='product-info-image rounded-full object-cover w-32'/>
+                    <span className='proudct-name font-semibold ml-10'>{product.title}</span>
                 </div>
                 <div className='product-info-bottom mt-5'>
                     <div className='product-info-item flex justify-between w-36'>
                         <span className='product-info-key'>id:</span>
-                        <span className='product-info-key font-light'>123</span>
+                        <span className='product-info-key font-light'>{product._id}</span>
                     </div>
                 </div>
                 <div className='product-info-item flex justify-between w-36'>
@@ -32,12 +41,8 @@ function Product() {
                     <span className='product-info-key font-light'>123</span>
                 </div>
                 <div className='product-info-item flex justify-between w-36'>
-                    <span className='product-info-key'>active:</span>
-                    <span className='product-info-key font-light'>yes</span>
-                </div>
-                <div className='product-info-item flex justify-between w-36'>
                     <span className='product-info-key'>in stock:</span>
-                    <span className='product-info-key font-light'>no</span>
+                    <span className='product-info-key font-light'>{product.inStock}</span>
                 </div>
             </div>
         </div>
@@ -45,21 +50,20 @@ function Product() {
             <form className='product-form flex justify-between'>
                 <div className='product-form-left flex flex-col'>
                     <label>Product Name:</label>
-                    <input type='text' placeholder='Winter Sweater'/>
+                    <input type='text' placeholder={product.title}/>
+                    <label>Product Description:</label>
+                    <input type='text' placeholder={product.description}/>
+                    <label>Product Price:</label>
+                    <input type='text' placeholder={product.price}/>
                     <label className='mb-10 text-slate-400'>In Stock</label>
                         <select name='inStock' id='idStock'>
-                            <option value='yes'>Yes</option>
-                            <option value='no'>No</option>
-                        </select>
-                        <label>Active</label>
-                        <select name='active' id='idStock'>
-                            <option value='yes'>Yes</option>
-                            <option value='no'>No</option>
+                            <option value='true'>Yes</option>
+                            <option value='false'>No</option>
                         </select>
                 </div>
                 <div className='product-form-right flex flex-col justify-around'>
                     <div className="products-upload flex items-center">
-                        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfrCRZY-C1hrAm9VlqOPjWkN5vFRYvqCShRg&usqp=CAU' className='product-upload-img rounded-full object-cover'></img>
+                        <img src={product.img} className='product-upload-img rounded-full object-cover w-36'></img>
                         <label for='file'>
                             <PublishIcon/>
                         </label>
