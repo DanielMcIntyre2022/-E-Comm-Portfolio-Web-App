@@ -33,7 +33,7 @@ function LargeWidget() {
                 <th className="large-widge-th">Status</th>
             </tr>
             {orders.map(order => (
-                <tr className="widget-large-tr">
+                <tr className="widget-large-tr" key={order._id}>
                 <td className="widget-large-user">
                     <span className="widget-large-name font-semibold">{order.userId}</span>
                 </td>
