@@ -31,3 +31,10 @@ admin/src/requestMethods
 admin/src/requestMethods.js
 /src/requestMethods.js
 
+# firebase 
+
+firebase
+/firebase
+firebase.js
+/firebase.js
+admin/src/firebase.js
