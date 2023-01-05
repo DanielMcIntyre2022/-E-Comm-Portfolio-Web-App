@@ -10,6 +10,7 @@ export const productslice = createSlice({
     reducers: {
 
         // Get all Products //
+
         getProductStart:(state) => {
             state.isFetching = true;
             state.error = false;
@@ -23,6 +24,7 @@ export const productslice = createSlice({
         },
 
         // Delete Product //
+
         deleteProductStart:(state) => {
             state.isFetching = true;
             state.error = false;
@@ -38,6 +40,7 @@ export const productslice = createSlice({
         },
 
         // Update Product //
+
         updateProductStart:(state) => {
             state.isFetching = true;
             state.error = false;
@@ -48,6 +51,20 @@ export const productslice = createSlice({
             = action.payload.user
         },
         updateProductFailure:(state) => {
+            state.error = true;
+        },
+
+        // Create Product //
+
+        createProductStart:(state) => {
+            state.isFetching = true;
+            state.error = false;
+        },
+        createProductSuccess:(state, action) => {
+            state.isFetching = false;
+            state.products.push(action.payload)
+        },
+        createProductFailure:(state) => {
             state.error = true;
         },
     },
@@ -62,7 +79,10 @@ export const {
     deleteProductFailure,
     updateProductStart, 
     updateProductSuccess,
-    updateProductFailure
+    updateProductFailure,
+    createProductStart, 
+    createProductSuccess,
+    createProductFailure,
 } = productslice.actions;
 
 export default productslice.reducer;
